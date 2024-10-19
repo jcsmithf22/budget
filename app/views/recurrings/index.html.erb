@@ -1,0 +1,15 @@
+<div>
+  Hello world!
+</div>
+
+<ul>
+  <% @recurrings.each do |recurring| %>
+    <li>
+      <%= recurring.name %>
+    </li>
+  <% end %>
+</ul>
+
+<div>
+Total: <%= @recurrings.sum(&:amount) %>
+</div>

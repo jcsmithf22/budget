@@ -1,0 +1,31 @@
+.form__input-container {
+    display: flex;
+    flex-direction: column;
+    max-width: var(--size-xs);
+
+    & label {
+        font-size: var(--font-size-sm);
+    }
+
+    & input {
+        width: 100%;
+        margin-top: var(--size-2);
+    }
+}
+
+.form__input-container:not(:first-of-type) {
+    margin-top: var(--size-4);
+}
+
+.form__input-error {
+    margin-top: var(--size-2);
+    font-size: var(--font-size-sm);
+    color: var(--red-7);
+}
+
+.field_with_errors {
+    & input {
+        color: var(--red-9);
+        background: var(--red-1);
+    }
+}

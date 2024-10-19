@@ -8,3 +8,28 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+/* Adjust open props normalize */
+
+:root {
+    --font-size-sm: 14px;
+}
+
+body {
+    background: white;
+}
+
+.container {
+    max-width: var(--size-md);
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+:focus-visible {
+    outline-color: var(--gray-12);
+    outline-offset: 0.25rem;
+}
+
+:where(:focus-visible) {
+    transition: none;
+}
