@@ -1,0 +1,5 @@
+<%= render 'buckets/form', bucket: @bucket %>
+
+<div class="form__input-container external-destroy">
+  <%= button_to "Destroy", bucket_path(@bucket), method: :delete, class: "btn btn--destroy" %>
+</div>

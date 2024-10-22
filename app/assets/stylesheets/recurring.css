@@ -1,0 +1,19 @@
+.recurring__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(224px, 1fr));
+    gap: var(--size-3);
+    /*margin-block-start: var(--size-3);*/
+    /*padding-block-start: var(--size-3);*/
+
+    & div {
+        font-size: var(--font-size-sm);
+    }
+
+    & p {
+        font-size: var(--font-size-sm);
+    }
+
+    &:has(> .empty-state:only-child) {
+        display: block;
+    }
+}

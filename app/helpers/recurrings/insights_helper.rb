@@ -1,0 +1,2 @@
+module Recurrings::InsightsHelper
+end

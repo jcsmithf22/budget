@@ -12,10 +12,14 @@
 <section>
   <div class="detailed-card">
     <div class="detailed-card__header">
-      <h3>New recurring</h3>
+      <h3>Edit <%= @recurring.name %></h3>
     </div>
     <div class="detailed-card__inner">
       <%= render 'recurrings/form', recurring: @recurring %>
+
+      <div class="form__input-container external-destroy">
+        <%= button_to "Destroy", recurring_path(@recurring), method: :delete, class: "btn btn--destroy" %>
+      </div>
     </div>
   </div>
 </section>

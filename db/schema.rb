@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_10_19_172839) do
+ActiveRecord::Schema[8.0].define(version: 2024_10_20_224127) do
   create_table "buckets", force: :cascade do |t|
     t.string "name", null: false
     t.decimal "limit", precision: 10, scale: 2
@@ -21,7 +21,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_10_19_172839) do
   create_table "recurrings", force: :cascade do |t|
     t.string "name", null: false
     t.decimal "amount", precision: 10, scale: 2, null: false
-    t.integer "day_of_month"
+    t.integer "day_of_month", default: 1, null: false
     t.string "link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -34,6 +34,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_10_19_172839) do
     t.integer "bucket_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "date", default: -> { "CURRENT_DATE" }, null: false
     t.index ["bucket_id"], name: "index_transactions_on_bucket_id"
   end
 

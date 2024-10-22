@@ -1,0 +1,54 @@
+<div class="page-header">
+  <div class="page-header__controls">
+    <%= link_to recurrings_path, class: "btn btn--round" do %>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left">
+        <path d="m12 19-7-7 7-7"/>
+        <path d="M19 12H5"/>
+      </svg>
+    <% end %>
+    <%#= link_to "Insights", recurrings_insights_path, class: "btn" %>
+    <%#= link_to "Add transaction", new_transaction_path, class: "btn btn--primary" %>
+  </div>
+
+  <div class="page-header__totals-container">
+    <div class="page-header__total">
+      <p>MTD</p>
+      <p><%= number_to_currency @recurrings.select { |recurring| recurring.due_date <= Date.today }.sum(&:amount) %></p>
+    </div>
+    <div class="page-header__total">
+      <p><%= Date.today.strftime('%B') %></p>
+      <p><%= number_to_currency @recurrings.sum(&:amount) %></p>
+    </div>
+  </div>
+</div>
+
+<div class="detailed-card">
+  <div class="detailed-card__header">
+    <h3>Cumulative amount</h3>
+  </div>
+  <div class="detailed-card__inner">
+    <%= area_chart @recurrings.total_over_time, curve: true, prefix: "$", round: 2, zeros: true, library: { 'scales': {
+      'x': {
+        'type': 'timeseries',
+        'time': {
+          'tooltipFormat': 'MMM d'
+        },
+      } } } %>
+  </div>
+</div>
+
+<div class="detailed-card">
+  <div class="detailed-card__header">
+    <h3>Amount by day</h3>
+  </div>
+  <div class="detailed-card__inner">
+    <%= column_chart @recurrings.amount_by_day, curve: true, prefix: "$", round: 2, zeros: true, library: { 'scales': {
+      'x': {
+        'type': 'timeseries',
+        'time': {
+          'tooltipFormat': 'MMM d'
+        },
+      } } } %>
+
+  </div>
+</div>

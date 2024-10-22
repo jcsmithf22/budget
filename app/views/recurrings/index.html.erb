@@ -1,15 +1,70 @@
-<div>
-  Hello world!
+<div class="page-header">
+  <div class="page-header__totals-container">
+    <div class="page-header__total">
+      <p>Total</p>
+      <p><%= number_to_currency @recurrings.sum(&:amount) %></p>
+    </div>
+  </div>
+
+  <div class="page-header__controls">
+    <%= link_to buckets_path, class: "btn btn--round" do %>
+      <span class="sr-only">Back to buckets</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left">
+        <path d="m12 19-7-7 7-7"/>
+        <path d="M19 12H5"/>
+      </svg>
+    <% end %>
+    <%= link_to "Insights", recurrings_insights_path, class: "btn" %>
+    <%= link_to "Add recurring", new_recurring_path, class: "btn btn--primary" %>
+  </div>
 </div>
 
-<ul>
+<ul class="recurring__list">
+  <li class="empty-state">
+    Nothing here
+  </li>
   <% @recurrings.each do |recurring| %>
-    <li>
-      <%= recurring.name %>
+    <li class="card">
+      <div>
+        <div class="card__header">
+          <h3>
+            <%= recurring.name %>
+          </h3>
+          <%= link_to edit_recurring_path(recurring) do %>
+            <span class="sr-only">Edit reccuring for <%= recurring.name %></span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil-line">
+              <path d="M12 20h9"/>
+              <path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"/>
+              <path d="m15 5 3 3"/>
+            </svg>
+          <% end %>
+        </div>
+        <div class="card__detail">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-dollar-sign">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/>
+            <path d="M12 18V6"/>
+          </svg>
+          <%= number_to_currency recurring.amount %>
+        </div>
+        <div class="card__detail">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-days">
+            <path d="M8 2v4"/>
+            <path d="M16 2v4"/>
+            <rect width="18" height="18" x="3" y="4" rx="2"/>
+            <path d="M3 10h18"/>
+            <path d="M8 14h.01"/>
+            <path d="M12 14h.01"/>
+            <path d="M16 14h.01"/>
+            <path d="M8 18h.01"/>
+            <path d="M12 18h.01"/>
+            <path d="M16 18h.01"/>
+          </svg>
+          <%= recurring.due_date.strftime('%B %e, %Y') %>
+        </div>
+      </div>
     </li>
   <% end %>
 </ul>
 
-<div>
-Total: <%= @recurrings.sum(&:amount) %>
-</div>
+

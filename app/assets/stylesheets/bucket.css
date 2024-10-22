@@ -1,0 +1,54 @@
+.bucket__list {
+    & li {
+        display: block;
+        inline-size: 100%;
+        max-inline-size: none;
+    }
+
+    & div {
+        font-size: var(--font-size-sm);
+    }
+
+    & p {
+        font-size: var(--font-size-sm);
+    }
+}
+
+.bucket__list:has(> .empty-state:only-child) {
+    display: block;
+}
+
+.bucket-card__edit, .bucket-card__new-transaction {
+    display: block;
+    background: white;
+    color: var(--gray-12);
+    padding: var(--size-2);
+
+    &:hover {
+        background: var(--gray-1);
+    }
+
+    & svg {
+        width: var(--size-4);
+        height: var(--size-4);
+    }
+}
+
+.bucket-card__new-transaction {
+    border-left: 1px solid var(--gray-4);
+}
+
+.bucket-card__controls {
+    display: flex;
+    margin-inline-end: var(--size-000);
+    margin-block: var(--size-000);
+    box-shadow: 0 0 0 var(--border-size-1) var(--gray-4);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin-inline-start: var(--size-2);
+}
+
+.bucket__card-limit {
+    font-size: var(--font-size-sm);
+    color: var(--gray-7);
+}
