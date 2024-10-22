@@ -15,6 +15,7 @@
     --black-5: hsl(0 0% 0% / 5%);
     --black-75: hsl(0 0% 0% / 7.5%);
     --black-10: hsl(0 0% 0% / 10%);
+    --black-125: hsl(0 0% 0% / 12.5%);
     --font-size-sm: 14px;
     --card-padding: var(--size-5);
 }
