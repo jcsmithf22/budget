@@ -1,0 +1,31 @@
+<%= form_with model: transaction do |form| %>
+  <div class="form__input-container">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <%= error_for transaction, :name %>
+  </div>
+  <div class="form__input-container">
+    <%= form.label :amount %>
+    <%= form.text_field :amount %>
+    <%= error_for transaction, :amount %>
+  </div>
+  <div class="form__input-container">
+    <%= form.label :date %>
+    <%= form.date_field :date %>
+    <%= error_for transaction, :date %>
+  </div>
+  <div class="form__input-container">
+    <%= form.label :bucket_id %>
+    <%= form.select :bucket_id, @buckets.map { |p| [ p.name, p.id ] } %>
+    <%= error_for transaction, :bucket_id %>
+  </div>
+  <div class="form__input-container">
+    <%= form.label :notes %>
+    <%= form.textarea :notes %>
+    <%= error_for transaction, :notes %>
+  </div>
+  <div class="form__input-container">
+    <%= form.submit class: "btn btn--primary" %>
+    <%= link_to "Cancel", buckets_path, class: "btn" %>
+  </div>
+<% end %>
