@@ -20,6 +20,9 @@
     --card-padding: var(--size-5);
 }
 
+@media (prefers-color-scheme: dark) {
+}
+
 .sr-only {
     position: absolute;
     width: 1px;
