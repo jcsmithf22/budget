@@ -1,16 +1,19 @@
 .card {
+    --card-background: var(--background-primary);
+    --card-border-inner: var(--black-10);
+    --card-border-outer: #ffffff4d;
     z-index: 1;
     padding: var(--size-2);
     /*   border: var(--border-size-1) solid var(--black-5); */
     border-radius: 1.5rem;
     box-shadow: inset 0 0 0 1px var(--black-5), var(--shadow-1),
-    inset 0 0 2px 1px #ffffff4d;
+    inset 0 0 1px 1px #ffffff2A;
 
     & > div {
-        background: white;
+        background: var(--card-background);
         padding: var(--card-padding);
         border-radius: var(--radius-3);
-        border: var(--border-size-1) solid var(--black-10);
+        border: var(--border-size-1) solid var(--card-border-inner);
         /*box-shadow: var(--shadow-4);*/
         box-shadow: 0 15px 30px -12px rgb(0 0 0 / 0.25);
         height: 100%;
@@ -67,7 +70,9 @@
 }
 
 .detailed-card {
-    background: var(--gray-0);
+    --detailed-card-background: var(--gray-0);
+    --detailed-card-inner-background: var(--background-primary);
+    background-color: var(--detailed-card-background);
     padding: var(--size-1);
     border-radius: var(--radius-3);
 
@@ -100,7 +105,7 @@
 
     & .detailed-card__inner {
         padding: var(--size-3);
-        background: white;
+        background-color: var(--detailed-card-inner-background);
         /*box-shadow: inset 0 0 0 var(--border-size-1) var(--black-10);*/
         border-top: 1px solid var(--black-75);
         border-left: 1px solid var(--black-10);
@@ -109,3 +114,16 @@
         border-radius: 0.75rem;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    .card {
+        --card-background: var(--gray-10);
+        --card-border-inner: var(--gray-8);
+    }
+
+    .detailed-card {
+        --detailed-card-background: var(--gray-10);
+        --detailed-card-inner-background: var(--gray-9);
+    }
+}
+

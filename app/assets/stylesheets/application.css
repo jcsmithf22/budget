@@ -18,10 +18,9 @@
     --black-125: hsl(0 0% 0% / 12.5%);
     --font-size-sm: 14px;
     --card-padding: var(--size-5);
+    --background-primary: white;
 }
 
-@media (prefers-color-scheme: dark) {
-}
 
 .sr-only {
     position: absolute;
@@ -40,7 +39,7 @@ a {
 }
 
 html {
-    background: white;
+    background-color: var(--background-primary);
 }
 
 
@@ -83,4 +82,10 @@ li {
 
 :where(:focus-visible) {
     transition: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-primary: var(--gray-11);
+    }
 }
