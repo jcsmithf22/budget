@@ -1,3 +1,7 @@
+<% content_for :page_specific do %>
+  <%= javascript_import_module_tag "insights" %>
+<% end %>
+
 <div class="page-header">
   <div class="page-header__controls">
     <%= link_to recurrings_path, class: "btn btn--round" do %>
