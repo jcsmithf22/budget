@@ -55,6 +55,7 @@
     --font-size-fluid-1: clamp(1rem, 4vw, 1.5rem);
     --font-size-fluid-2: clamp(1.5rem, 6vw, 2.5rem);
     --font-size-fluid-3: clamp(2rem, 9vw, 3.5rem);
+    --size-0000: -1rem;
     --size-000: -.5rem;
     --size-00: -.25rem;
     --size-1: .25rem;

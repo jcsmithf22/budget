@@ -112,6 +112,10 @@
         border-right: 1px solid var(--black-10);
         border-bottom: 1px solid var(--black-125);
         border-radius: 0.75rem;
+
+        &:has(.bucket__transaction-list) {
+            padding: 0;
+        }
     }
 }
 

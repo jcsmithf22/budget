@@ -20,7 +20,7 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new(transaction_params)
 
     if @transaction.save
-      redirect_to transactions_path
+      redirect_to buckets_path
     else
       render :new, status: :unprocessable_entity
     end

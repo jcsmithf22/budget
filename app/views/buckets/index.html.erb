@@ -39,21 +39,21 @@
         </div>
       </div>
       <div class="detailed-card__inner">
-        <ul>
+        <ul class="bucket__transaction-list">
           <% bucket.transactions.each do |transaction| %>
-            <li>
-              <p>
+            <li class="bucket__transaction">
+              <div class="bucket__transaction-date">
+                <%= transaction.date.strftime('%b %e, %Y') %>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-dot">
+                <circle cx="12.1" cy="12.1" r="1"/>
+              </svg>
+              <div class="bucket__transaction-name">
                 <%= transaction.name %>
-              </p>
-              <p>
-                <%= transaction.amount %>
-              </p>
-              <p>
-                <%= transaction.date %>
-              </p>
-              <p>
-                <%= transaction.notes %>
-              </p>
+              </div>
+              <div class="bucket__transaction-amount">
+                <%= number_to_currency transaction.amount %>
+              </div>
             </li>
           <% end %>
         </ul>

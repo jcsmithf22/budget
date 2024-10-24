@@ -52,3 +52,33 @@
     font-size: var(--font-size-sm);
     color: var(--gray-7);
 }
+
+.bucket__transaction-list {
+    display: flex;
+    flex-direction: column;
+    /*gap: var(--size-2);*/
+
+    & .bucket__transaction {
+        display: flex;
+        /*justify-content: space-between;*/
+        gap: var(--size-1);
+        align-items: center;
+        padding: var(--size-2) var(--size-3);
+        border-top: 1px solid var(--black-10);
+        /*margin: 0 var(--size-0000);*/
+
+        & .bucket__transaction-date {
+            /*font-size: var(--font-size-sm);*/
+            color: var(--gray-7);
+        }
+
+        & .bucket__transaction-name {
+            font-weight: var(--font-weight-4);
+            flex: 1;
+        }
+    }
+
+    & .bucket__transaction:first-of-type {
+        border-top: none;
+    }
+}
