@@ -1,10 +1,10 @@
-.form__input-container {
+:where(.form__input-container) {
     display: flex;
     flex-direction: column;
-    max-width: var(--size-xs);
 
     & label {
         font-size: var(--font-size-sm);
+        display: block;
     }
 
     & :where(input, select) {
@@ -21,8 +21,8 @@
 }
 
 
-.form__input-container:not(:first-of-type) {
-    margin-top: var(--size-4);
+:is(.form__input-container:not(:first-of-type)) {
+    margin-block-start: var(--size-4);
 }
 
 .form__input-error {
@@ -69,9 +69,24 @@ select {
 }
 
 .external-destroy {
-    margin-block-start: var(--size-2);
+    display: none;
+    /*margin-block-start: var(--size-2);*/
 
-    & button {
-        width: 100%;
+    /*& button {*/
+    /*    width: 100%;*/
+    /*}*/
+}
+
+.form__action-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-2);
+    margin-top: var(--size-4);
+}
+
+@media (min-width: 480px) {
+    .form__action-container {
+        flex-direction: row;
+        justify-content: end;
     }
 }

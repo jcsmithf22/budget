@@ -1,16 +1,21 @@
 <%= form_with model: bucket do |form| %>
-  <div class="form__input-container">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-    <%= error_for bucket, :name %>
+  <div class="bucket__form-container">
+    <div class="form__input-container">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+      <%= error_for bucket, :name %>
+    </div>
+    <div class="form__input-container">
+      <%= form.label :limit %>
+      <%= form.text_field :limit %>
+      <%= error_for bucket, :limit %>
+    </div>
   </div>
-  <div class="form__input-container">
-    <%= form.label :limit %>
-    <%= form.text_field :limit %>
-    <%= error_for bucket, :limit %>
-  </div>
-  <div class="form__input-container">
+  <div class="form__action-container">
     <%= form.submit class: "btn btn--primary" %>
     <%= link_to "Cancel", buckets_path, class: "btn" %>
+    <% if bucket.persisted? %>
+      <label for="<%= dom_id bucket, :destroy %>" class="btn btn--destroy" tabindex="0">Destroy</label>
+    <% end %>
   </div>
 <% end %>

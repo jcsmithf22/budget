@@ -16,8 +16,9 @@
     </div>
     <div class="detailed-card__inner">
       <%= render 'buckets/form', bucket: @bucket %>
-      <div class="form__input-container external-destroy">
-        <%= button_to "Destroy", bucket_path(@bucket), method: :delete, class: "btn btn--destroy" %>
+
+      <div class="external-destroy">
+        <%= button_to "Destroy", bucket_path(@bucket), method: :delete, class: "", id: dom_id(@bucket, :destroy) %>
       </div>
     </div>
   </div>
