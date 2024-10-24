@@ -52,22 +52,22 @@
     background-color: var(--surface-2)
 }
 
-@media (prefers-color-scheme: dark) {
-    :where(html) {
-        --link: var(--indigo-3);
-        --link-visited: var(--purple-3);
-        --text-1: var(--gray-1);
-        --text-2: var(--gray-4);
-        --surface-1: var(--gray-9);
-        --surface-2: var(--gray-8);
-        --surface-3: var(--gray-7);
-        --surface-4: var(--gray-6);
-        --scrollthumb-color: var(--gray-6);
-        --shadow-strength: 10%;
-        --shadow-color: 220 40% 2%;
-        color-scheme: dark
-    }
-}
+/*@media (prefers-color-scheme: dark) {*/
+/*    :where(html) {*/
+/*        --link: var(--indigo-3);*/
+/*        --link-visited: var(--purple-3);*/
+/*        --text-1: var(--gray-1);*/
+/*        --text-2: var(--gray-4);*/
+/*        --surface-1: var(--gray-9);*/
+/*        --surface-2: var(--gray-8);*/
+/*        --surface-3: var(--gray-7);*/
+/*        --surface-4: var(--gray-6);*/
+/*        --scrollthumb-color: var(--gray-6);*/
+/*        --shadow-strength: 10%;*/
+/*        --shadow-color: 220 40% 2%;*/
+/*        color-scheme: dark*/
+/*    }*/
+/*}*/
 
 :where(a[href]) {
     color: var(--brand, var(--link))
@@ -458,15 +458,16 @@
     border-collapse: collapse
 }
 
+/*:where(table tr:hover td), :where(tbody tr:nth-child(2n):hover td) {*/
+/*    background-color: var(--gray-10)*/
+/*}*/
+
+/*@media (prefers-color-scheme: light) {*/
 :where(table tr:hover td), :where(tbody tr:nth-child(2n):hover td) {
-    background-color: var(--gray-10)
+    background-color: #fff
 }
 
-@media (prefers-color-scheme: light) {
-    :where(table tr:hover td), :where(tbody tr:nth-child(2n):hover td) {
-        background-color: #fff
-    }
-}
+/*}*/
 
 :where(table>caption) {
     margin: var(--size-3)
@@ -477,16 +478,16 @@
     padding-inline: var(--size-3)
 }
 
-@media (prefers-color-scheme: dark) {
-    :where(textarea,select,input:not([type=button],[type=submit],[type=reset])) {
-        background-color: #171a1c
-    }
+/*@media (prefers-color-scheme: dark) {*/
+/*    :where(textarea,select,input:not([type=button],[type=submit],[type=reset])) {*/
+/*        background-color: #171a1c*/
+/*    }*/
 
-    :where(dialog) {
-        background-color: var(--surface-2)
-    }
+/*    :where(dialog) {*/
+/*        background-color: var(--surface-2)*/
+/*    }*/
 
-    ::placeholder {
-        color: var(--gray-6)
-    }
-}
+/*    ::placeholder {*/
+/*        color: var(--gray-6)*/
+/*    }*/
+/*}*/

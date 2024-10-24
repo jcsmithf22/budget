@@ -84,8 +84,8 @@ li {
     transition: none;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background-primary: var(--gray-11);
-    }
-}
+/*@media (prefers-color-scheme: dark) {*/
+/*    :root {*/
+/*        --background-primary: var(--gray-11);*/
+/*    }*/
+/*}*/
