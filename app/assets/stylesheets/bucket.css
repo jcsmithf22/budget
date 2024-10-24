@@ -58,6 +58,12 @@
     flex-direction: column;
     /*gap: var(--size-2);*/
 
+    & .empty-state {
+        text-align: center;
+        color: var(--gray-6);
+        padding: var(--size-2) var(--size-3);
+    }
+
     & .bucket__transaction {
         display: flex;
         /*justify-content: space-between;*/

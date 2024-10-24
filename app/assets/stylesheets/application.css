@@ -55,6 +55,10 @@ main {
     }
 }
 
+:where(.empty-state) {
+    font-size: var(--font-size-sm);
+}
+
 .empty-state:not(:only-child) {
     display: none;
 }
