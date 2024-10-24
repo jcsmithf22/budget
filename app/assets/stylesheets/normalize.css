@@ -85,7 +85,7 @@
     box-sizing: border-box
 }
 
-:where(:not(dialog)) {
+:where(:not(dialog, .container)) {
     margin: 0
 }
 
@@ -209,8 +209,10 @@
 }
 
 :where(input:not([type=range]),textarea) {
-    padding-block: var(--size-1);
-    padding-inline: var(--size-2)
+    /*padding-block: var(--size-1);*/
+    /*padding-inline: var(--size-2)*/
+    padding-block: var(--size-2);
+    padding-inline: 0.75rem;
 }
 
 :where(select) {
@@ -219,9 +221,17 @@
 }
 
 :where(textarea,select,input:not([type=button],[type=submit],[type=reset])) {
-    background-color: var(--surface-2);
-    border-radius: var(--radius-2)
+    /*background-color: var(--surface-2);*/
+    border-radius: var(--radius-2);
+    background-color: var(--gray-1);
 }
+
+/*@media (min-width: var(--size-xs)) {*/
+/*    :where(textarea,select,input:not([type=button],[type=submit],[type=reset])) {*/
+/*        font-size: var(--font-size-sm);*/
+/*    }*/
+/*}*/
+
 
 :where(textarea) {
     resize: block

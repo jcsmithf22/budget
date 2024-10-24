@@ -60,6 +60,28 @@ a.btn {
     text-decoration: none;
 }
 
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--size-2);
+    padding-block-start: 0.75rem;
+
+    & h1 {
+        font-size: 22px;
+        font-weight: var(--font-weight-6);
+
+        & span {
+            color: var(--indigo-8);
+        }
+    }
+
+    & img {
+        width: var(--size-7);
+        height: var(--size-7);
+    }
+}
+
 .page-header {
     display: flex;
     justify-content: space-between;

@@ -1,4 +1,11 @@
 <div class="page-header">
+  <div class="page-header__totals-container">
+    <div class="page-header__total">
+      <p>Total</p>
+      <p><%= number_to_currency @buckets.sum { |bucket| bucket.transactions.sum(&:amount) } %></p>
+    </div>
+  </div>
+
   <div class="page-header__controls">
     <div class="flex-expand"></div>
     <%= link_to "Recurring", recurrings_path, class: "btn" %>

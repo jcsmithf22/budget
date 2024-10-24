@@ -767,36 +767,36 @@
     }
 }
 
-@media (prefers-color-scheme: dark) {
-    @keyframes fade-in-bloom {
-        0% {
-            filter: brightness(1) blur(20px);
-            opacity: 0
-        }
-        10% {
-            filter: brightness(.5) blur(10px);
-            opacity: 1
-        }
-        to {
-            filter: brightness(1) blur(0);
-            opacity: 1
-        }
-    }
-}
+/*@media (prefers-color-scheme: dark) {*/
+/*    @keyframes fade-in-bloom {*/
+/*        0% {*/
+/*            filter: brightness(1) blur(20px);*/
+/*            opacity: 0*/
+/*        }*/
+/*        10% {*/
+/*            filter: brightness(.5) blur(10px);*/
+/*            opacity: 1*/
+/*        }*/
+/*        to {*/
+/*            filter: brightness(1) blur(0);*/
+/*            opacity: 1*/
+/*        }*/
+/*    }*/
+/*}*/
 
-@media (prefers-color-scheme: dark) {
-    @keyframes fade-out-bloom {
-        to {
-            filter: brightness(1) blur(20px);
-            opacity: 0
-        }
-        10% {
-            filter: brightness(.5) blur(10px);
-            opacity: 1
-        }
-        0% {
-            filter: brightness(1) blur(0);
-            opacity: 1
-        }
-    }
-}
+/*@media (prefers-color-scheme: dark) {*/
+/*    @keyframes fade-out-bloom {*/
+/*        to {*/
+/*            filter: brightness(1) blur(20px);*/
+/*            opacity: 0*/
+/*        }*/
+/*        10% {*/
+/*            filter: brightness(.5) blur(10px);*/
+/*            opacity: 1*/
+/*        }*/
+/*        0% {*/
+/*            filter: brightness(1) blur(0);*/
+/*            opacity: 1*/
+/*        }*/
+/*    }*/
+/*}*/

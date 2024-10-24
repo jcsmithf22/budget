@@ -43,7 +43,7 @@ html {
 }
 
 
-.container {
+:where(.container) {
     max-width: var(--size-md);
     margin: 0 auto;
     padding: 0 1rem;
@@ -84,7 +84,7 @@ li {
     outline-offset: 0.25rem;
 }
 
-:where(:focus-visible) {
+:is(:focus-visible) {
     transition: none;
 }
 
