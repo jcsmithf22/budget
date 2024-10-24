@@ -31,8 +31,10 @@
 
 <body>
 <header class="container">
-  <%= image_tag "/icon-192.png", height: 32, width: 32, class: "header__image" %>
-  <h1>Budget<span>Fast</span></h1>
+  <%= link_to buckets_path do %>
+    <%= image_tag "/icon-192.png", height: 32, width: 32, class: "header__image" %>
+    <h1>Budget<span>Fast</span></h1>
+  <% end %>
 </header>
 <main class="container">
   <%= yield %>
