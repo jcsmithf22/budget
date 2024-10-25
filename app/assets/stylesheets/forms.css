@@ -88,5 +88,6 @@ select {
     .form__action-container {
         flex-direction: row;
         justify-content: end;
+        align-items: center;
     }
 }
