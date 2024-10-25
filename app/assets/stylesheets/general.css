@@ -128,3 +128,16 @@ header {
         font-weight: var(--font-weight-5);
     }
 }
+
+footer {
+    & div, p {
+        font-size: var(--font-size-sm);
+    }
+
+    & .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-block-end: var(--size-6);
+    }
+}

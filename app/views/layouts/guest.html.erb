@@ -13,11 +13,7 @@
   <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
   <%= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
 
-  <!--      <link rel="icon" href="/icon.png" type="image/png">-->
-  <!--    <link rel="icon" href="/icon.svg" type="image/svg+xml">-->
-  <!--      <link rel="apple-touch-icon" href="/icon.png">-->
   <link rel="icon" href="/favicon.ico" sizes="any">
-  <!--  <link rel="icon" href="/icon-192.png" type="image/png">-->
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
   <!--  <meta name="theme-color" content="black" media="(prefers-color-scheme: dark)">-->
@@ -39,11 +35,5 @@
 <main class="container">
   <%= yield %>
 </main>
-<footer>
-  <div class="container">
-    <p><%= Current.user.email_address %></p>
-    <%= button_to "Logout", session_path, method: :delete, class: "btn" %>
-  </div>
-</footer>
 </body>
 </html>
