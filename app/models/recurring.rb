@@ -1,4 +1,6 @@
 class Recurring < ApplicationRecord
+  belongs_to :user, optional: false
+
   validates :name, presence: true
   validates :amount, presence: true, numericality: { greater_than: 0 }
   validates :day_of_month, presence: true, numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: 31 }

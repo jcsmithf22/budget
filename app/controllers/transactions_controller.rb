@@ -2,42 +2,40 @@ class TransactionsController < ApplicationController
   before_action :set_buckets, only: [ :new, :create ]
 
   def index
-    @transactions = Transaction.all
+    @transactions = Current.user.transactions.all
   end
 
   def show
   end
 
   def new
+    @transaction = Current.user.transactions.new(date: Date.today)
     if params[:bucket_id]
-      @transaction = Transaction.new(bucket_id: params[:bucket_id], date: Date.today)
-    else
-      @transaction = Transaction.new(date: Date.today)
+      @transaction.bucket_id = params[:bucket_id]
     end
   end
 
   def create
-    @transaction = Transaction.new(transaction_params)
+    @transaction = Current.user.transactions.new(transaction_params)
 
     if @transaction.save
-      redirect_to buckets_path
+      redirect_to buckets_url
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-
   private
 
     def transaction_params
-      params.require(:transaction).permit(:name, :amount, :notes, :bucket_id, :date)
+      params.expect(transaction: [ :name, :amount, :notes, :bucket_id, :date ])
     end
 
     def set_transaction
-      @transaction = Transaction.find(params[:id])
+      @transaction = Current.user.transactions.find(params[:id])
     end
 
     def set_buckets
-      @buckets = Bucket.all
+      @buckets = Current.user.buckets.all
     end
 end
