@@ -246,9 +246,9 @@
     resize: block
 }
 
-:where(input[type=date]) {
-    line-height: 1.25;
-}
+/*:where(input[type=date]) {*/
+/*    line-height: 1.25;*/
+/*}*/
 
 :where(input[type=checkbox],input[type=radio]) {
     block-size: var(--size-3);
