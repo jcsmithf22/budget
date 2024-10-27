@@ -2,7 +2,8 @@
     --btn-bg: white;
     --btn-color: var(--gray-12);
     --btn-bg-hover: var(--gray-1);
-    --btn-radius: var(--radius-round);
+    /*--btn-radius: var(--radius-2);*/
+    --btn-radius: 0.5rem;
     --btn-font-size: var(--font-size-sm);
     --btn-border: var(--gray-4);
     --btn-border-width: 1px;

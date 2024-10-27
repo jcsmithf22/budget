@@ -3,6 +3,14 @@
     margin-inline: auto;
     padding-block-start: var(--size-10);
 
+    & .form__action-container div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /*align-items: center;*/
+        /*padding-block-start: var(--size-4);*/
+    }
+
     & .form__action-container a {
         /*margin-inline-start: var(--size-3);*/
         color: var(--indigo-8);
@@ -20,7 +28,7 @@
         & .form__action-container {
             justify-content: space-between;
 
-            & a {
+            & a:last-of-type {
                 padding-block-end: 0;
             }
         }

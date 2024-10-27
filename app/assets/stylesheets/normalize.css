@@ -227,7 +227,8 @@
     /*background-color: var(--surface-2);*/
     /*border-radius: var(--radius-2);*/
     background-color: var(--gray-1);
-    border-radius: 1.25rem;
+    border-radius: 0.5rem;
+    /*border-radius: 1.25rem;*/
 }
 
 /*:where(textarea) {*/
@@ -243,6 +244,10 @@
 
 :where(textarea) {
     resize: block
+}
+
+:where(input[type=date]) {
+    line-height: 1.25;
 }
 
 :where(input[type=checkbox],input[type=radio]) {
