@@ -1,0 +1,7 @@
+<%= turbo_stream.before "bucket-empty-state", @bucket %>
+
+<%= turbo_stream.update Bucket.new, "" %>
+
+<%#= turbo_stream.update "transaction-total" do %>
+  <%#= render "buckets/total" %>
+<%# end %>

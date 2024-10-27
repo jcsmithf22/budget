@@ -89,26 +89,15 @@
     }
 }
 
-/*@media (min-width: 480px) {*/
-/*    .bucket__form-container {*/
-/*        display: grid;*/
-/*        grid-template-columns: repeat(2, 1fr);*/
-/*        gap: var(--size-4) var(--size-2);*/
-
-/*        & .form__input-container {*/
-/*            margin-block-start: 0;*/
-/*            max-width: none;*/
-/*        }*/
-
-/*        & .form__input-container:nth-child(1) {*/
-/*            grid-column: 1 / span 2;*/
-/*        }*/
-/*    }*/
-/*}*/
-
 .bucket__form-container {
     & .form__input-container:not(:first-of-type) {
         margin-block-start: var(--size-4);
+    }
+}
+
+.bucket__new {
+    & section {
+        padding-block-end: var(--size-3);
     }
 }
 

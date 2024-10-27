@@ -16,7 +16,10 @@ class BucketsController < ApplicationController
     @bucket = Current.user.buckets.new(bucket_params)
 
     if @bucket.save
-      redirect_to buckets_url
+      respond_to do |format|
+        format.html { redirect_to buckets_url }
+        format.turbo_stream
+      end
     else
       render :new, status: :unprocessable_entity
     end

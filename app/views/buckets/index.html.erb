@@ -1,76 +1,22 @@
 <div class="page-header">
   <div class="page-header__totals-container">
-    <div class="page-header__total">
-      <p>Total</p>
-      <p><%= number_to_currency @buckets.sum { |bucket| bucket.transactions.sum(&:amount) } %></p>
-    </div>
+    <%= turbo_frame_tag "transaction-total", class: "page-header__total" do %>
+      <%= render "buckets/total" %>
+    <% end %>
   </div>
 
   <div class="page-header__controls">
     <div class="flex-expand"></div>
     <%= link_to "Recurring", recurrings_path, class: "btn" %>
-    <%= link_to "Add bucket", new_bucket_path, class: "btn btn--primary" %>
+    <%= link_to "Add bucket", new_bucket_path, class: "btn btn--primary", data: { turbo_frame: dom_id(Bucket.new) } %>
   </div>
 </div>
 
+<%= turbo_frame_tag Bucket.new, class: "bucket__new" %>
+
 <ul class="bucket__list">
-  <% @buckets.each do |bucket| %>
-    <li class="detailed-card">
-      <div class="detailed-card__header">
-        <h3><%= bucket.name %></h3>
-        <div class="detailed-card__actions">
-          <div>
-            <!-- Add the styling for this to the bucket specific file. this isn't universal-->
-            <span class="bucket-card__limit <%= bucket.transactions.sum(&:amount) > 100 ? 'red' : '' %>"><%= number_to_currency(bucket.transactions.sum(&:amount)) %></span>
-            <% if bucket.limit.present? %>
-              <span class="bucket-card__limit"> / <%= number_to_currency(bucket.limit) %></span>
-            <% end %>
-          </div>
-          <div class="bucket-card__controls">
-            <%= link_to edit_bucket_path(bucket), class: 'bucket-card__edit' do %>
-              <span class="sr-only">Edit bucket for <%= bucket.name %></span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil-line">
-                <path d="M12 20h9"/>
-                <path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"/>
-                <path d="m15 5 3 3"/>
-              </svg>
-            <% end %>
-            <%= link_to new_transaction_path(bucket_id: bucket.id), class: 'bucket-card__new-transaction' do %>
-              <span class="sr-only">Add transaction</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus">
-                <path d="M5 12h14"/>
-                <path d="M12 5v14"/>
-              </svg>
-            <% end %>
-          </div>
-        </div>
-      </div>
-      <div class="detailed-card__inner">
-        <ul class="bucket__transaction-list">
-          <% bucket.transactions.each do |transaction| %>
-            <li class="bucket__transaction">
-              <div class="bucket__transaction-date">
-                <%= transaction.date.strftime('%b %e, %Y') %>
-              </div>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-dot">
-                <circle cx="12.1" cy="12.1" r="1"/>
-              </svg>
-              <div class="bucket__transaction-name">
-                <%= transaction.name %>
-              </div>
-              <div class="bucket__transaction-amount">
-                <%= number_to_currency transaction.amount %>
-              </div>
-            </li>
-          <% end %>
-          <li class="empty-state">
-            No transactions
-          </li>
-        </ul>
-      </div>
-    </li>
-  <% end %>
-  <li class="empty-state">
+  <%= render @buckets %>
+  <li class="empty-state" id="bucket-empty-state">
     Nothing here
   </li>
 </ul>

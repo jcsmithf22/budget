@@ -4,13 +4,15 @@
   </div>
 </div>
 
-<section>
-  <div class="detailed-card">
-    <div class="detailed-card__header">
-      <h3>New bucket</h3>
+<%= turbo_frame_tag @bucket do %>
+  <section>
+    <div class="detailed-card">
+      <div class="detailed-card__header">
+        <h3>New bucket</h3>
+      </div>
+      <div class="detailed-card__inner">
+        <%= render 'buckets/form', bucket: @bucket %>
+      </div>
     </div>
-    <div class="detailed-card__inner">
-      <%= render 'buckets/form', bucket: @bucket %>
-    </div>
-  </div>
-</section>
+  </section>
+<% end %>
