@@ -12,10 +12,10 @@
   <div class="page-header__totals-container">
     <div class="page-header__total">
       <p>MTD</p>
-      <p><%= number_to_currency @recurrings.select { |recurring| recurring.due_date <= Date.today }.sum(&:amount) %></p>
+      <p><%= number_to_currency @recurrings.select { |recurring| recurring.due_date <= Date.current }.sum(&:amount) %></p>
     </div>
     <div class="page-header__total">
-      <p><%= Date.today.strftime('%B') %></p>
+      <p><%= Date.current.strftime('%B') %></p>
       <p><%= number_to_currency @recurrings.sum(&:amount) %></p>
     </div>
   </div>

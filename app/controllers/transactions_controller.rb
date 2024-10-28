@@ -9,7 +9,7 @@ class TransactionsController < ApplicationController
   end
 
   def new
-    @transaction = Current.user.transactions.new(date: Date.today)
+    @transaction = Current.user.transactions.new(date: Date.current)
     # @specified_bucket = params[:bucket_id] || "undefined"
 
     if params[:bucket_id]

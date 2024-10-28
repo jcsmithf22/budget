@@ -24,10 +24,10 @@ class Recurring < ApplicationRecord
   end
 
   def due_date
-    Date.today.change(day: day_of_month.clamp(1, Date.today.end_of_month.day))
+    Date.current.change(day: day_of_month.clamp(1, Date.current.end_of_month.day))
   end
 
   def self.day_to_date(day)
-    Date.today.change(day: day.clamp(1, Date.today.end_of_month.day))
+    Date.current.change(day: day.clamp(1, Date.current.end_of_month.day))
   end
 end

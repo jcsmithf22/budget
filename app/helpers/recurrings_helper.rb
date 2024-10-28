@@ -1,6 +1,6 @@
 module RecurringsHelper
   def day_to_month(day)
-    Date.today.change(day: day.clamp(1, Date.today.end_of_month.day))
+    Date.current.change(day: day.clamp(1, Date.current.end_of_month.day))
   end
   def cost_over_time
     @recurrings_grouped ||= @recurrings.group(:day_of_month).sum(:amount).sort

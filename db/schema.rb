@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_10_25_032338) do
+ActiveRecord::Schema[8.0].define(version: 2024_10_28_212519) do
   create_table "buckets", force: :cascade do |t|
     t.string "name", null: false
     t.decimal "limit", precision: 10, scale: 2
@@ -18,6 +18,14 @@ ActiveRecord::Schema[8.0].define(version: 2024_10_25_032338) do
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
     t.index ["user_id"], name: "index_buckets_on_user_id"
+  end
+
+  create_table "limits", force: :cascade do |t|
+    t.decimal "amount", precision: 10, scale: 2, null: false
+    t.string "month", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "year", null: false
   end
 
   create_table "recurrings", force: :cascade do |t|
