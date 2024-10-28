@@ -1,0 +1,13 @@
+<%= turbo_stream.prepend "transaction_list_bucket_#{@transaction.bucket_id}" do %>
+  <%= render "buckets/transaction", transaction: @transaction %>
+<% end %>
+
+<%= turbo_stream.update "new_transaction_bucket_#{@specified_bucket}", "" %>
+
+<%= turbo_stream.update "transaction-total" do %>
+  <%= render "buckets/total" %>
+<% end %>
+
+<%= turbo_stream.update dom_id(@transaction.bucket, "transaction_total") do %>
+  <%= render "buckets/bucket_total", bucket: @transaction.bucket %>
+<% end %>

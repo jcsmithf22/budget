@@ -10,7 +10,9 @@
       <h3>New transaction</h3>
     </div>
     <div class="detailed-card__inner">
+      <%#= turbo_frame_tag "new_transaction_bucket_#{@transaction.bucket_id.presence || 'none'}", class: "detailed-card__inner" do %>
       <%= render 'transactions/form', transaction: @transaction %>
+      <%# end %>
     </div>
   </div>
 </section>

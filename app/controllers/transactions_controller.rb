@@ -10,6 +10,8 @@ class TransactionsController < ApplicationController
 
   def new
     @transaction = Current.user.transactions.new(date: Date.today)
+    # @specified_bucket = params[:bucket_id] || "undefined"
+
     if params[:bucket_id]
       @transaction.bucket_id = params[:bucket_id]
     end
@@ -17,8 +19,13 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = Current.user.transactions.new(transaction_params)
+    # @specified_bucket = params[:specified_bucket]
 
     if @transaction.save
+      # respond_to do |format|
+      #   format.html { redirect_to buckets_url }
+      #   format.turbo_stream
+      # end
       redirect_to buckets_url
     else
       render :new, status: :unprocessable_entity

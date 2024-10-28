@@ -1,14 +1,9 @@
+<%# locals: (bucket:) %>
+
 <li class="detailed-card">
   <div class="detailed-card__header">
     <h3><%= bucket.name %></h3>
     <div class="detailed-card__actions">
-      <div>
-        <!-- Add the styling for this to the bucket specific file. this isn't universal-->
-        <span class="bucket-card__limit <%= bucket.transactions.sum(&:amount) > 100 ? 'red' : '' %>"><%= number_to_currency(bucket.transactions.sum(&:amount)) %></span>
-        <% if bucket.limit.present? %>
-          <span class="bucket-card__limit"> / <%= number_to_currency(bucket.limit) %></span>
-        <% end %>
-      </div>
       <div class="bucket-card__controls">
         <%= link_to edit_bucket_path(bucket), class: 'bucket-card__edit' do %>
           <span class="sr-only">Edit bucket for <%= bucket.name %></span>
@@ -18,6 +13,7 @@
             <path d="m15 5 3 3"/>
           </svg>
         <% end %>
+        <%#= link_to new_transaction_path(bucket_id: bucket.id), class: 'bucket-card__new-transaction', data: { turbo_frame: dom_id(bucket, "new_transaction") } do %>
         <%= link_to new_transaction_path(bucket_id: bucket.id), class: 'bucket-card__new-transaction' do %>
           <span class="sr-only">Add transaction</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus">
@@ -29,26 +25,24 @@
     </div>
   </div>
   <div class="detailed-card__inner">
-    <ul class="bucket__transaction-list">
-      <% bucket.transactions.each do |transaction| %>
-        <li class="bucket__transaction">
-          <div class="bucket__transaction-date">
-            <%= transaction.date.strftime('%b %e, %Y') %>
-          </div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-dot">
-            <circle cx="12.1" cy="12.1" r="1"/>
-          </svg>
-          <div class="bucket__transaction-name">
-            <%= transaction.name %>
-          </div>
-          <div class="bucket__transaction-amount">
-            <%= number_to_currency transaction.amount %>
-          </div>
-        </li>
-      <% end %>
+    <%#= turbo_frame_tag dom_id(bucket, "new_transaction"), class: "transaction__new" %>
+    <ul class="bucket__transaction-list" id="<%= dom_id(bucket, "transaction_list") %>">
+      <%= render partial: "buckets/transaction", collection: bucket.transactions %>
       <li class="empty-state">
         No transactions
       </li>
     </ul>
+  </div>
+  <div class="detailed-card__footer">
+    <div class="bucket__card-limit-container">
+      <!-- Add the styling for this to the bucket specific file. this isn't universal-->
+
+      <%= tag.div id: dom_id(bucket, "transaction_total",), class: "bucket-card__limit" do %>
+        <%= render "buckets/bucket_total", bucket: bucket %>
+      <% end %>
+      <% if bucket.limit.present? %>
+        <span class="bucket-card__limit"> / <%= number_to_currency(bucket.limit) %></span>
+      <% end %>
+    </div>
   </div>
 </li>

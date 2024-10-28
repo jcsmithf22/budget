@@ -48,6 +48,12 @@
     margin-inline-start: var(--size-2);
 }
 
+.bucket__card-limit-container {
+    display: flex;
+    align-items: center;
+    gap: var(--size-1);
+}
+
 .bucket__card-limit {
     font-size: var(--font-size-sm);
     color: var(--gray-7);
@@ -99,6 +105,16 @@
     & section {
         padding-block-end: var(--size-3);
     }
+}
+
+.transaction__new {
+    display: block;
+}
+
+.transaction__new:not(:empty) {
+    display: block;
+    padding: var(--size-3);
+    border-block-end: 1px solid var(--black-10);
 }
 
 @media (min-width: 480px) {

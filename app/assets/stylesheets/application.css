@@ -42,7 +42,6 @@ html {
     background-color: var(--background-primary);
 }
 
-
 :where(.container) {
     max-width: var(--size-md);
     margin: 0 auto;
