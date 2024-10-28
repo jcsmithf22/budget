@@ -75,20 +75,6 @@
     }
 }
 
-@media (min-width: 480px) {
-    .btn.btn--round {
-        &:hover {
-            & > div:first-of-type {
-                transform: translateX(-300%);
-            }
-
-            & > div:last-of-type {
-                transform: translateX(0);
-            }
-        }
-    }
-}
-
 a.btn {
     text-decoration: none;
 }
@@ -174,3 +160,50 @@ footer {
         padding-block-end: var(--size-6);
     }
 }
+
+.popover__container {
+    position: relative;
+
+    & .popover__card {
+        position: absolute;
+        inset-inline-start: 50%;
+        transform: translateX(-50%);
+        inset-block-start: calc(-100% - var(--size-1));
+        /*inset-block: 100%;*/
+        /*inset-inline: 100%;*/
+        padding-block: var(--size-2);
+        padding-inline: var(--size-3);
+        background-color: white;
+        border-radius: 0.75rem;
+        border: var(--black-10) 1px solid;
+        box-shadow: var(--shadow-2);
+        z-index: 9999;
+        display: none;
+        width: max-content;
+    }
+
+    & div, p {
+        font-size: var(--font-size-sm);
+    }
+}
+
+@media (min-width: 480px) {
+    .btn.btn--round {
+        &:hover {
+            & > div:first-of-type {
+                transform: translateX(-300%);
+            }
+
+            & > div:last-of-type {
+                transform: translateX(0);
+            }
+        }
+    }
+
+    .popover__container {
+        & .popover__card {
+            display: block;
+        }
+    }
+}
+

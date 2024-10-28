@@ -8,43 +8,21 @@
 
   <div class="page-header__controls">
     <%= render 'partials/back', path: buckets_path %>
-    <%= link_to recurrings_insights_path, class: "btn btn--round" do %>
-      <span class="sr-only">View insights</span>
-      <div>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-spline">
-          <path d="M3 3v16a2 2 0 0 0 2 2h16"/>
-          <path d="M7 16c.5-2 1.5-7 4-7 2 0 2 3 4 3 2.5 0 4.5-5 5-7"/>
-        </svg>
-      </div>
-      <div>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-spline">
-          <path d="M3 3v16a2 2 0 0 0 2 2h16"/>
-          <path d="M7 16c.5-2 1.5-7 4-7 2 0 2 3 4 3 2.5 0 4.5-5 5-7"/>
-        </svg>
-      </div>
+    <%= render "partials/round_link", path: recurrings_insights_path, details: "Insights", sr_text: "View insights" do %>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-spline">
+        <path d="M3 3v16a2 2 0 0 0 2 2h16"/>
+        <path d="M7 16c.5-2 1.5-7 4-7 2 0 2 3 4 3 2.5 0 4.5-5 5-7"/>
+      </svg>
     <% end %>
-    <%= link_to new_recurring_path, class: "btn btn--primary btn--round" do %>
-      <span class="sr-only">New recurring cost</span>
-      <div>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-plus">
-          <path d="M8 2v4"/>
-          <path d="M16 2v4"/>
-          <path d="M21 13V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"/>
-          <path d="M3 10h18"/>
-          <path d="M16 19h6"/>
-          <path d="M19 16v6"/>
-        </svg>
-      </div>
-      <div>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-plus">
-          <path d="M8 2v4"/>
-          <path d="M16 2v4"/>
-          <path d="M21 13V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"/>
-          <path d="M3 10h18"/>
-          <path d="M16 19h6"/>
-          <path d="M19 16v6"/>
-        </svg>
-      </div>
+    <%= render "partials/round_link", path: new_recurring_path, details: "New recurring", sr_text: "New recurring cost", primary: true do %>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-plus">
+        <path d="M8 2v4"/>
+        <path d="M16 2v4"/>
+        <path d="M21 13V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"/>
+        <path d="M3 10h18"/>
+        <path d="M16 19h6"/>
+        <path d="M19 16v6"/>
+      </svg>
     <% end %>
   </div>
 </div>
