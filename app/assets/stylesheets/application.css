@@ -42,10 +42,6 @@ html {
     background-color: var(--background-primary);
 }
 
-body {
-    overflow: hidden;
-}
-
 :where(.container) {
     max-width: var(--size-md);
     margin: 0 auto;
