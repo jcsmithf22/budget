@@ -132,6 +132,7 @@ header {
 
 .page-header__totals-container {
     display: flex;
+    flex-shrink: 0;
     gap: var(--size-5);
 }
 
@@ -145,6 +146,17 @@ header {
 
     & p:last-of-type {
         font-weight: var(--font-weight-5);
+    }
+
+    & a {
+        width: max-content;
+        display: inline-block;
+        font-weight: var(--font-weight-5);
+        color: var(--indigo-8);
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
 

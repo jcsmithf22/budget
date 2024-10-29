@@ -3,6 +3,20 @@
     <%= turbo_frame_tag "transaction-total", class: "page-header__total" do %>
       <%= render "buckets/total" %>
     <% end %>
+    <div class="page-header__total">
+      <% limit = Current.user.limits.last %>
+      <% if limit %>
+        <p><%= link_to "Limit", edit_limit_path(limit) %></p>
+      <% else %>
+        <p>Limit</p>
+      <% end %>
+      <% if limit %>
+        <p><%= number_to_currency(limit.amount) %>
+        </p>
+      <% else %>
+        <%= link_to "Not set", new_limit_path %>
+      <% end %>
+    </div>
   </div>
 
   <div class="page-header__controls">

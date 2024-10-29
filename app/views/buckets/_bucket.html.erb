@@ -13,7 +13,6 @@
             <path d="m15 5 3 3"/>
           </svg>
         <% end %>
-        <%#= link_to new_transaction_path(bucket_id: bucket.id), class: 'bucket-card__new-transaction', data: { turbo_frame: dom_id(bucket, "new_transaction") } do %>
         <%= link_to new_transaction_path(bucket_id: bucket.id), class: 'bucket-card__new-transaction' do %>
           <span class="sr-only">Add transaction</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus">

@@ -1,0 +1,16 @@
+<div class="page-header">
+  <div class="page-header__controls">
+    <%= render 'partials/back', path: buckets_path %>
+  </div>
+</div>
+
+<section>
+  <div class="detailed-card">
+    <div class="detailed-card__header">
+      <h3>Set limit</h3>
+    </div>
+    <div class="detailed-card__inner">
+      <%= render 'limits/form', limit: @limit %>
+    </div>
+  </div>
+</section>

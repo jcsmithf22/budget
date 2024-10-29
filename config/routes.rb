@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :recurrings
   resources :buckets
   resources :transactions
+  resources :limits, only: [ :new, :create, :edit, :update ]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

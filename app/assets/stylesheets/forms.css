@@ -102,3 +102,9 @@ select {
     /*    height: 37px;*/
     /*}*/
 }
+
+.default__form-container {
+    & .form__input-container:not(:first-of-type) {
+        margin-block-start: var(--size-4);
+    }
+}

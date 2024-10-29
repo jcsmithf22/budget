@@ -1,0 +1,16 @@
+<%= form_with model: limit do |form| %>
+  <div class="default__form-container">
+    <div class="form__input-container">
+      <%= form.label :amount %>
+      <%= form.text_field :amount %>
+      <%= error_for limit, :amount %>
+    </div>
+  </div>
+  <div class="form__action-container">
+    <%= form.submit class: "btn btn--primary" %>
+    <%= link_to "Cancel", buckets_path, class: "btn" %>
+    <%# if limit.persisted? %>
+<!--      <label for="<%#= dom_id limit, :destroy %>" class="btn btn--destroy" tabindex="0">Destroy</label>-->
+    <%# end %>
+  </div>
+<% end %>

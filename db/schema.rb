@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_10_28_212519) do
+ActiveRecord::Schema[8.0].define(version: 2024_10_29_033444) do
   create_table "buckets", force: :cascade do |t|
     t.string "name", null: false
     t.decimal "limit", precision: 10, scale: 2
@@ -26,6 +26,8 @@ ActiveRecord::Schema[8.0].define(version: 2024_10_28_212519) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "year", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_limits_on_user_id"
   end
 
   create_table "recurrings", force: :cascade do |t|
@@ -71,6 +73,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_10_28_212519) do
   end
 
   add_foreign_key "buckets", "users"
+  add_foreign_key "limits", "users"
   add_foreign_key "recurrings", "users"
   add_foreign_key "sessions", "users"
   add_foreign_key "transactions", "buckets"
