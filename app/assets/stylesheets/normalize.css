@@ -226,7 +226,7 @@
 :where(textarea,select,input:not([type=button],[type=submit],[type=reset])) {
     /*background-color: var(--surface-2);*/
     /*border-radius: var(--radius-2);*/
-    background-color: var(--gray-1);
+    background-color: var(--gray-0);
     border-radius: 0.5rem;
     /*border-radius: 1.25rem;*/
 }

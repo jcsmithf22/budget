@@ -1,3 +1,4 @@
 <%# locals: (bucket:) %>
 
-<span class="<%= bucket.transactions.sum(&:amount) > 100 ? 'red' : '' %>"><%= number_to_currency(bucket.transactions.sum(&:amount)) %></span>
+<% sum = bucket.current_month_transactions.sum(&:amount) %>
+<span class="<%= sum > 100 ? 'red' : '' %>"><%= number_to_currency(sum) %></span>

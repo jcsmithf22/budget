@@ -2,7 +2,7 @@ class TransactionsController < ApplicationController
   before_action :set_buckets, only: [ :new, :create ]
 
   def index
-    @transactions = Current.user.transactions.all
+    @transactions = Current.user.transactions.includes(:bucket).by_month(Date.current).ordered_by_date
   end
 
   def show

@@ -27,7 +27,7 @@
   <div class="detailed-card__inner">
     <%#= turbo_frame_tag dom_id(bucket, "new_transaction"), class: "transaction__new" %>
     <ul class="bucket__transaction-list" id="<%= dom_id(bucket, "transaction_list") %>">
-      <%= render partial: "buckets/transaction", collection: bucket.transactions %>
+      <%= render partial: "buckets/transaction", collection: bucket.current_month_transactions %>
       <li class="empty-state">
         No transactions
       </li>

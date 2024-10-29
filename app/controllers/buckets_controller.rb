@@ -2,7 +2,8 @@ class BucketsController < ApplicationController
   before_action :set_bucket, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @buckets = Current.user.buckets.includes(:transactions).all
+    @buckets = Current.user.buckets.includes(:current_month_transactions).all
+    # @transactions = Current.user.transactions.includes(:bucket).by_month(Date.current).ordered_by_date
   end
 
   def show
