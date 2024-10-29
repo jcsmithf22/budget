@@ -17,26 +17,26 @@ export default class extends Controller {
 
         if (!content) return;
 
-        // setTimeout(() => {
-        //
-        // }
+        this.timeout = setTimeout(() => {
+            const fragment = document.createRange().createContextualFragment(content);
+            const node = this.element.appendChild(fragment);
 
-        const fragment = document.createRange().createContextualFragment(content);
-        const node = this.element.appendChild(fragment);
-
-        computePosition(this.buttonTarget, this.cardTarget, {
-            placement: 'top',
-            middleware: [offset(4), shift({padding: 4})]
-        }).then(({x, y}) => {
-            Object.assign(this.cardTarget.style, {
-                left: `${x}px`,
-                top: `${y}px`,
+            computePosition(this.buttonTarget, this.cardTarget, {
+                placement: 'top',
+                middleware: [offset(4), shift({padding: 4})]
+            }).then(({x, y}) => {
+                Object.assign(this.cardTarget.style, {
+                    left: `${x}px`,
+                    top: `${y}px`,
+                });
             });
-        });
+        }, 500);
+
         // console.log(this.element)
     }
 
     hide() {
+        clearTimeout(this.timeout);
         if (this.hasCardTarget) {
             this.cardTarget.remove();
         }
