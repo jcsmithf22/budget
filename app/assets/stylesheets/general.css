@@ -164,19 +164,30 @@ footer {
 .popover__container {
     position: relative;
 
+    .btn {
+        anchor-name: --popover-anchor;
+    }
+
     & .popover__card {
         position: absolute;
-        inset-inline-start: 50%;
-        transform: translateX(-50%);
-        inset-block-start: calc(-100% - var(--size-1));
-        /*inset-block: 100%;*/
+        /*position-anchor: --popover-anchor;*/
+        /*position-area: top span-all;*/
+        /*inset-inline-start: 50%;*/
+        /*transform: translateX(-50%);*/
+        top: 0;
+        left: 0;
+        /*inset-block-start: calc(-100% - var(--size-1));*/
+        /*bottom: anchor(--popover-anchor top);*/
+        /*left: anchor(--popover-anchor left);*/
+        /*position-try-fallbacks: flip-block;*/
+        /*position-visibility: no-overflow;*/
         /*inset-inline: 100%;*/
         padding-block: var(--size-2);
         padding-inline: var(--size-3);
         background-color: white;
         border-radius: 0.75rem;
         border: var(--black-10) 1px solid;
-        box-shadow: var(--shadow-2);
+        box-shadow: var(--shadow-1);
         z-index: 9999;
         display: none;
         width: max-content;

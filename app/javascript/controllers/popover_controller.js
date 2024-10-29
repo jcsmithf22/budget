@@ -1,8 +1,9 @@
 import {Controller} from "@hotwired/stimulus";
+import {computePosition, shift, offset} from "@floating-ui/dom";
 
 // Connects to data-controller="popover"
 export default class extends Controller {
-    static targets = ["card", "content"];
+    static targets = ["card", "content", "button"];
     static values = {url: String};
 
     async show(event) {
@@ -16,8 +17,22 @@ export default class extends Controller {
 
         if (!content) return;
 
+        // setTimeout(() => {
+        //
+        // }
+
         const fragment = document.createRange().createContextualFragment(content);
-        this.element.appendChild(fragment);
+        const node = this.element.appendChild(fragment);
+
+        computePosition(this.buttonTarget, this.cardTarget, {
+            placement: 'top',
+            middleware: [offset(4), shift({padding: 4})]
+        }).then(({x, y}) => {
+            Object.assign(this.cardTarget.style, {
+                left: `${x}px`,
+                top: `${y}px`,
+            });
+        });
         // console.log(this.element)
     }
 

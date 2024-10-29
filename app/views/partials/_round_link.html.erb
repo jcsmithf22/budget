@@ -1,7 +1,7 @@
-<%# locals: (path:, details:, sr_text:, primary: false) %>
+<%# locals: (path:, details:, sr_text:, primary: false, data: {}) %>
 
 <div data-controller="popover" class="popover__container">
-  <%= link_to path, class: "btn btn--round #{primary ? 'btn--primary' : ''}", data: { action: "mouseenter->popover#show mouseleave->popover#hide" } do %>
+  <%= link_to path, class: "btn btn--round #{primary ? 'btn--primary' : ''}", data: { action: "mouseenter->popover#show mouseleave->popover#hide", popover_target: "button", **data } do %>
     <span class="sr-only"><%= sr_text %></span>
     <div>
       <%= yield %>
