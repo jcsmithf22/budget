@@ -162,12 +162,14 @@ html[data-show-header="true"] header {
 }
 
 .hero {
+  transition: none;
   --hero-spacing: 5rem;
   padding-block-start: var(--hero-spacing);
   padding-block-end: calc(44px - var(--size-6) + var(--hero-spacing));
 
   & a {
     opacity: 1;
+    transition: none;
     /* transition: opacity 150ms ease-in; */
 
     color: black;
@@ -176,10 +178,6 @@ html[data-show-header="true"] header {
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-
-    &.hide {
-      opacity: 0;
-    }
   }
 
   & h1 {
