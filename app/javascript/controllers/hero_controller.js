@@ -10,11 +10,13 @@ export default class extends Controller {
 
   disappear(entry, observer) {
     document.documentElement.dataset.showHeader = "true";
-    this.element.style.opacity = 0;
+    // this.element.style.opacity = 0;
+    this.element.classList.add("hide");
   }
 
   appear(entry, observer) {
     document.documentElement.dataset.showHeader = "false";
-    this.element.style.opacity = 1;
+    // this.element.style.opacity = 1;
+    this.element.classList.remove("hide");
   }
 }

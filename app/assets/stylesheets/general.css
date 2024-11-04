@@ -176,6 +176,10 @@ html[data-show-header="true"] header {
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
+
+    &.hide {
+      opacity: 0;
+    }
   }
 
   & h1 {
