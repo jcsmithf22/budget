@@ -1,3 +1,4 @@
 <p>Total</p>
-<!--      <p><%#= number_to_currency @buckets.sum { |bucket| bucket.transactions.sum(&:amount) } %></p>-->
-<p><%= number_to_currency Current.user.transactions.sum(:amount) %></p>
+<!--
+<p><%#= number_to_currency @buckets.sum { |bucket| bucket.transactions.sum(&:amount) } %></p>-->
+<p><%= number_to_currency Current.user.current_month_transactions.sum(:amount) %></p>
