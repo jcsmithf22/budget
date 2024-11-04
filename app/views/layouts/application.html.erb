@@ -33,17 +33,19 @@
   <body>
     <header
       class="container"
-      data-controller="header"
-      data-action="scroll@document->header#log:passive"
+      <%#data-controller="header"%>
+      <%#data-action="scroll@document->header#log:passive"%>
     >
-      <%= link_to buckets_path do %>
-        <%= image_tag "/icon-192.png", height: 32, width: 32, class: "header__image" %>
-        <h1>Budget<span>Fast</span></h1>
-      <% end %>
+      <div data-header-target="container">
+        <%= link_to buckets_path do %>
+          <%= image_tag "/icon-192.png", height: 32, width: 32, class: "header__image" %>
+          <h1>Budget<span>Fast</span></h1>
+        <% end %>
+      </div>
     </header>
     <main class="container">
       <div class="hero">
-        <%= link_to buckets_path do %>
+        <%= link_to buckets_path, data: { controller: "hero" } do %>
           <%= image_tag "/icon-192.png", height: 32, width: 32, class: "header__image" %>
           <h1>Budget<span>Fast</span></h1>
         <% end %>
