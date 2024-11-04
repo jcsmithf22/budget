@@ -168,7 +168,7 @@ html[data-show-header="true"] header {
 
   & a {
     opacity: 1;
-    transition: opacity 150ms ease-in;
+    /* transition: opacity 150ms ease-in; */
 
     color: black;
     display: flex;
