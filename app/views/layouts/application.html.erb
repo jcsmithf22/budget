@@ -45,7 +45,7 @@
     </header>
     <main class="container">
       <div class="hero">
-        <%= link_to buckets_path, data: { controller: "hero" } do %>
+        <%= link_to buckets_path, data: { controller: "hero", turbo_permanent: "true" } do %>
           <%= image_tag "/icon-192.png", height: 32, width: 32, class: "header__image" %>
           <h1>Budget<span>Fast</span></h1>
         <% end %>
