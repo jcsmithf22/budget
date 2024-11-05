@@ -1,5 +1,5 @@
 <div class="hero">
-  <%= link_to buckets_path, data: { controller: "hero" } do %>
+  <%= link_to buckets_path, data: { controller: "hero", action: "scroll@document->hero#toggle:passive" } do %>
     <%= image_tag "/logo.webp", height: 32, width: 32, class: "header__image" %>
     <h1>Budget<span>Fast</span></h1>
   <% end %>

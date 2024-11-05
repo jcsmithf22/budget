@@ -169,8 +169,7 @@ html[data-show-header="true"] header {
 
   & a {
     opacity: 1;
-    transition: none;
-    /* transition: opacity 150ms ease-in; */
+    transition: opacity 150ms ease-in;
 
     color: black;
     display: flex;
@@ -192,32 +191,6 @@ html[data-show-header="true"] header {
   & img {
     width: var(--size-8);
     height: var(--size-8);
-  }
-}
-
-.fade-in {
-  animation: 150ms forwards ease-in fadein;
-}
-
-.fade-out {
-  animation: 150ms forwards ease-in fade-out;
-}
-
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fade-out {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
   }
 }
 
